@@ -45,7 +45,7 @@
     <Compile Include="Personne.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="CommercialBoVoyage.cs" />
-    <Compile Include="Agence.cs" />
+    <Compile Include="AgencePartenaire.cs" />
     <Compile Include="Assurance.cs" />
     <Compile Include="Dossier.cs" />
     <Compile Include="Voyage.cs" />

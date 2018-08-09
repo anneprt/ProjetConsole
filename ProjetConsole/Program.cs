@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
-	class Program
+	public class Program
 	{
 		static void Main(string[] args)
 		{
@@ -27,17 +27,17 @@ namespace ProjetConsole
 				{
 					case "1":
 						Console.Clear();
-						ListerVoyage();
+						ListerVoyages(voyages);
 						OutilsConsole.AfficherRetourMenu();
 						Console.ReadKey();
 						break;
 					case "2":
 						Console.Clear();
-						ReserverVoyage();
+						//ReserverVoyage();
 						break;
 					case "3":
 						Console.Clear();
-						ConsulterDossier();
+						//ConsulterDossier();
 						break;
 					case "q":
 					case "Q":
@@ -59,43 +59,81 @@ namespace ProjetConsole
 			void AfficherMenu()
 			{
 				Console.WriteLine("Menu");
-				string item1 = "1.Liste des voyages";
+				string item1 = "1.Liste des destinations";
 				string item2 = "2.Faire une réservation";
 				string item3 = "3.Annuler une réservation";
 				string item4 = "4.Gestion clientèle";
 				string item5 = "Q.Quitter";
 
-				Console.WriteLine($"{ item1}\n{ item2}\n{ item3}\n{item4}\");
+				Console.WriteLine($"{ item1}\n{ item2}\n{ item3}\n{item4}\n{item5}");
 
 				//OutilsConsole.AfficherRetourMenu();
 			}
 
-
-
-			void ConsulterDossier()
+			void ListerVoyages(IEnumerable<Voyage> listeVoyages)
 			{
-				var saisie = Console.ReadLine();
+
+
+				Console.WriteLine("Voici la liste des destinations disponibles");
+				Console.ForegroundColor = ConsoleColor.Yellow;
+
+
+				OutilsConsole.AfficherChamp("CONTINENT", 20);
+				OutilsConsole.AfficherChamp("PAYS", 10);
+				OutilsConsole.AfficherChamp("REGION", 10);
+				OutilsConsole.AfficherChamp("DESCRIPTION", 20);
+				OutilsConsole.AfficherChamp("DATE ALLER", 10);
+				OutilsConsole.AfficherChamp("DATE RETOUR", 10);
+				OutilsConsole.AfficherChamp("DATE RETOUR", 10);
+				OutilsConsole.AfficherChamp("TARIF PAR PERSONNE", 20);
+
+
+				Console.WriteLine();
+				Console.WriteLine(new string('_', 75));
+
+				Console.ResetColor();
+
+
+				foreach (var contact in listeVoyages)
+				{
+
+					/*OutilsConsole.AfficherChamp(destination.Continent, 10);
+					OutilsConsole.AfficherChamp(destination.Pays, 10);
+					OutilsConsole.AfficherChamp(destination.Region, 20);
+					OutilsConsole.AfficherChamp(destination.DescriptionVoyage, 10);
+					OutilsConsole.AfficherChamp(destination.DateAller.ToShortDateString(), 10);
+					OutilsConsole.AfficherChamp(destination.DateRetour.ToShortDateString(), 10);*/
+
+				}
+				OutilsConsole.AfficherRetourMenu();
+
+
+
+				void ConsulterDossier()
+				{
+					var saisie = Console.ReadLine();
+
+
+
+				}
+
+				void ListerVoyage()
+				{
+
+				}
+
+				void ReserverVoyage()
+				{
+
+
+				}
+
+
+
 
 
 
 			}
-
-			void ListerVoyage()
-			{
-
-			}
-
-			void ReserverVoyage()
-			{
-
-
-			}
-
-
-
-
-
-
 		}
 	}
 }

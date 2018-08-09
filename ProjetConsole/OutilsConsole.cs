@@ -53,6 +53,14 @@ namespace ProjetConsole
 			Console.WriteLine("\n");
 		}
 
+		public static void AfficherChamp(string texte, int longueurAffichage)
+		{
+			texte = (texte ?? string.Empty);
+
+			
+			texte = texte.Substring(0, Math.Min(texte.Length, longueurAffichage));
+			Console.Write($"{texte.PadRight(longueurAffichage)} | ");
+		}
 
 
 

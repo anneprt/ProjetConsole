@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
-    class Agence
+    class AgencePartenaire
     {
     }
 }

@@ -8,13 +8,15 @@ namespace ProjetConsole
 {
     public class Voyage
     {
-        public double TarifPourcentageReduction { get; set; }
-        public DateTime Aller { get; set; }
-        public DateTime Retour { get; set; }
+        public double PourcentageReduction { get; set; }
+        public double Tarif { get; set; }
+        public DateTime DateAller { get; set; }
+        public DateTime DateRetour { get; set; }
         public int NombreVoyageur { get; set; }
 
         public static void CalculTarifReduit()
         {
+			
         }
     }   
 
