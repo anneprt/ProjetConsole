@@ -12,40 +12,28 @@ namespace ProjetConsole
 		{
 			OutilsConsole.AfficherEntete();
 
-			OutilsConsole.AfficherMessage("1.Je suis un client\n2.Je suis un commercial\nVotre choix", ConsoleColor.Yellow);
+			Console.WriteLine("Veuillez saisir votre identifiant pour continuer");
 
-			string choix = Console.ReadLine();
-			switch (choix)
-			{
-				case "1":
-					Console.Clear();
-					AfficherMenuAccueilClient();
-					Console.WriteLine("\nVotre choix:");
-					break;
-				case "2":
-					Console.Clear();
-					AfficherMenuAccueilCommercial();
-					break;
-			}
+			AfficherMenu();
 
 
 			bool continuer = true;
 			while (continuer == true)  //while(menu)
 			{
 
-				
+
 				string choix1 = Console.ReadLine();
 				switch (choix1)
 				{
 					case "1":
 						Console.Clear();
-						//ListerOffresVoyages;
+						ListerVoyage();
 						OutilsConsole.AfficherRetourMenu();
 						Console.ReadKey();
 						break;
 					case "2":
 						Console.Clear();
-						//ReserverVoyage();
+						ReserverVoyage();
 						break;
 					case "3":
 						Console.Clear();
@@ -68,33 +56,41 @@ namespace ProjetConsole
 				Console.ReadKey();
 			}
 
-			void AfficherMenuAccueilClient()
+			void AfficherMenu()
 			{
 				Console.WriteLine("Menu");
-				string item1 = "1.Découvrir notre offre de voyages";
-				string item2 = "2.Réserver un voyage";
-				string item3 = "3.Consulter mon dossier";
-				string item4 = "Q.Quitter";
+				string item1 = "1.Liste des voyages";
+				string item2 = "2.Faire une réservation";
+				string item3 = "3.Annuler une réservation";
+				string item4 = "4.Gestion clientèle";
+				string item5 = "Q.Quitter";
 
-				Console.WriteLine($"{ item1}\n{ item2}\n{ item3}\n{item4}");
+				Console.WriteLine($"{ item1}\n{ item2}\n{ item3}\n{item4}\");
 
 				//OutilsConsole.AfficherRetourMenu();
 			}
 
-			void AfficherMenuAccueilCommercial()
-			{
 
-				Console.WriteLine("Veuillez saisir votre identifiant pour continuer");
-				
-			}
 
 			void ConsulterDossier()
 			{
 				var saisie = Console.ReadLine();
-				Console.WriteLine("Veuillez saisir votre identifiant client pour continuer");
+
 
 
 			}
+
+			void ListerVoyage()
+			{
+
+			}
+
+			void ReserverVoyage()
+			{
+
+
+			}
+
 
 
 
