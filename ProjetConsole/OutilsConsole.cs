@@ -38,6 +38,22 @@ namespace ProjetConsole
 			Console.ResetColor();
 		}
 
+		public static void AfficherRetourMenu()
+		{
+			Console.WriteLine();
+			AfficherMessage("\n Appuyez sur une touche pour revenir au menu", ConsoleColor.Cyan);
+			Console.ReadKey();
+		}
+
+		public static void AfficherEntete()
+		{
+			Console.WriteLine("*****************************");
+			Console.WriteLine("BIENVENUE CHEZ BO VOYAGE");
+			Console.WriteLine("*****************************");
+			Console.WriteLine("\n");
+		}
 
 
-}	}
+
+
+	}	}
