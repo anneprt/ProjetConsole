@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionVoyageService.cs" />
     <Compile Include="GestionClientService.cs" />
     <Compile Include="InitialisationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

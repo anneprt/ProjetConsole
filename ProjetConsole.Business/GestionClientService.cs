@@ -44,5 +44,30 @@ namespace ProjetConsole.Business
 
             clientDonnees.Supprimer(resultat.First());
         }
+
+        public List<Client> FiltrerLesClientsParNomParPrenom(string saisie)
+        {
+            return (from client in clientDonnees.GetListe()
+                                where client.Nom.StartsWith(saisie, StringComparison.OrdinalIgnoreCase)
+                                || client.Prenom.StartsWith(saisie, StringComparison.OrdinalIgnoreCase)
+                                select client).ToList();
+            
+        }
+
+        public List<Client> TrierLesClientsParNom(string saisie)
+        {
+            return (from client in clientDonnees.GetListe()
+                                orderby client.Nom ascending
+                                select client).ToList();
+        }
+
+        public List<Client> TrierLesClientsParPrenom(string saisie)
+        {
+            return (from client in clientDonnees.GetListe()
+                    orderby client.Prenom ascending
+                    select client).ToList();
+        }
     }
+
+
 }

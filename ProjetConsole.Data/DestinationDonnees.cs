@@ -88,7 +88,8 @@ namespace ProjetConsole.Data
 
         public Destination RecupererDestinationParId(string id)
         {
-            var resultat = from destination in destinations
+            InitialiserListe();
+            var resultat = from destination in this.destinations
                         where destination.Id == id
                         select destination;
             return resultat.First();
