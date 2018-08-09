@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
-    class Personne
+    public abstract class Personne
     {
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public string Email { get; set; }
+        public string Telephone { get; set; }
+        public DateTime? DateNaissance { get; set; }
     }
 }
