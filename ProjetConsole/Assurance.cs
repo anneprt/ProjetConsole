@@ -8,6 +8,8 @@ namespace ProjetConsole
 {
     public class Assurance
     {
-        public 
+        public string TypeAssurance { get; set; }
+
     }
+
 }

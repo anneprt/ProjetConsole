@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
-    class Dossier
+    public class Dossier
     {
+        public int NumeroDossier { get; set; }
+
     }
 }

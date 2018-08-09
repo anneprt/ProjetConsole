@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
-    class CommercialBoVoyage
+    public class CommercialBoVoyage
     {
+        public int IDCommercial { get; set; }
+
+
+
+        public static void DemarcherClient()
+        {
+
+        }
+        public static void NegocierVoyage()
+        {
+
+        }
+
     }
+
 }

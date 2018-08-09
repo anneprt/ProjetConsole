@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
-    class Voyage
+    public class Voyage
     {
-    }
+        public double TarifPourcentageReduction { get; set; }
+        public DateTime Aller { get; set; }
+        public DateTime Retour { get; set; }
+        public int NombreVoyageur { get; set; }
+
+        public static void CalculTarifReduit()
+        {
+        }
+    }   
+
 }

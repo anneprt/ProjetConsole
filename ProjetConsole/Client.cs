@@ -8,10 +8,10 @@ namespace ProjetConsole
 {
     public class Client
     {
-		public string Nom { get; set; }
-		public string Prenom { get; set; }
-		public string Email { get; set; }
-		public string Telephone { get; set; }
-		public DateTime? DateNaissance { get; set; }
-	}
+        public int IDClient { get; set; }
+        // L'ID client correspond à "l'identifiant client" qui lui permet de s'authentifier sur le site de BoVoyage lors de sa réservation. 
+        public int NumeroCB { get; set; }
+        public bool Accompagnant { get; set; }
+        public int NombreAccompagnant { get; set; }
+    }
 }
