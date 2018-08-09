@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4786CF19-2A7B-4AC0-A9EB-7F3B744EF7BC}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>ProjetConsole</RootNamespace>
-    <AssemblyName>ProjetConsole</AssemblyName>
+    <ProjectGuid>{2ACFE36E-A48B-4D59-8F90-91114789982E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjetConsole.Outils</RootNamespace>
+    <AssemblyName>ProjetConsole.Outils</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,25 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="OutilsConsole.cs" />
+    <Compile Include="OutilsDate.cs" />
+    <Compile Include="OutilsFichier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProjetConsole.Business\ProjetConsole.Business.csproj">
-      <Project>{6f810bae-d1d0-4547-b7a5-c86df74e223b}</Project>
-      <Name>ProjetConsole.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjetConsole.Data\ProjetConsole.Data.csproj">
-      <Project>{a0bf0585-386c-410f-8c92-fdf8b9357a73}</Project>
-      <Name>ProjetConsole.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjetConsole.Outils\ProjetConsole.Outils.csproj">
-      <Project>{2ACFE36E-A48B-4D59-8F90-91114789982E}</Project>
-      <Name>ProjetConsole.Outils</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

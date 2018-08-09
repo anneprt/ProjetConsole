@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
-    class AgencePartenaire
+    public class Assurance
     {
+        public string Type { get; set; }
+
     }
+
 }

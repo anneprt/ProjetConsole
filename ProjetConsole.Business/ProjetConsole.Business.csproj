@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6F810BAE-D1D0-4547-B7A5-C86DF74E223B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>ProjetConsole.Business</RootNamespace>
     <AssemblyName>ProjetConsole.Business</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,11 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetConsole.Data\ProjetConsole.Data.csproj">
+      <Project>{a0bf0585-386c-410f-8c92-fdf8b9357a73}</Project>
+      <Name>ProjetConsole.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetConsole.Outils\ProjetConsole.Outils.csproj">
+      <Project>{2acfe36e-a48b-4d59-8f90-91114789982e}</Project>
+      <Name>ProjetConsole.Outils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

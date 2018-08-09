@@ -8,13 +8,15 @@ namespace ProjetConsole
 {
 	public class Client :Personne
 	{
-		public int IdClient { get; set; }
-		// L'ID client correspond à "l'identifiant client" qui lui permet de s'authentifier sur le site de BoVoyage lors de sa réservation. 
-		public int NumeroCB { get; set; }
-		public bool Accompagnant { get; set; }
-		public int NombreAccompagnant { get; set; }
+		
+        public string Telephone { get; set; }
+        public DateTime DateNaissance { get; set; }
 
-		public void CalculerAge()
+
+
+
+
+        public void CalculerAge()
 		{
 			//var dateNaissance = DateTime.Parse(saisie);//la variable vient de la liste du fichier client
 

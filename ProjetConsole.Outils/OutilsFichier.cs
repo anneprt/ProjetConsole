@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetConsole
+namespace ProjetConsole.Outils
 {
-    public class Reservation
+    public abstract class OutilsFichier
     {
     }
 }

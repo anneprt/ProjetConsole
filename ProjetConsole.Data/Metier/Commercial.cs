@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
-    public class CommercialBoVoyage
+    public class Commercial:Personne
     {
-        public int IDCommercial { get; set; }
-
-
 
         public static void DemarcherClient()
         {

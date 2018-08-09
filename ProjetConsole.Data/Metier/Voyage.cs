@@ -12,12 +12,7 @@ namespace ProjetConsole
         public double Tarif { get; set; }
         public DateTime DateAller { get; set; }
         public DateTime DateRetour { get; set; }
-        public int NombreVoyageur { get; set; }
-
-        public static void CalculTarifReduit()
-        {
-			
-        }
+        public Destination Destination { get; set; }
     }   
 
 }
