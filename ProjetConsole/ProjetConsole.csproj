@@ -42,6 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Personne.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="CommercialBoVoyage.cs" />
+    <Compile Include="Agence.cs" />
+    <Compile Include="Assurance.cs" />
+    <Compile Include="Dossier.cs" />
+    <Compile Include="Voyage.cs" />
+    <Compile Include="Destination.cs" />
+    <Compile Include="Reservation.cs" />
     <Compile Include="OutilsConsole.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
