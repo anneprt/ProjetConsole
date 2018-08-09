@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetConsole
+namespace ProjetConsole.Data.Metier
 {
     public abstract class Personne
     {
@@ -12,6 +12,7 @@ namespace ProjetConsole
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Email { get; set; }
+        public EnumTypePersonne Type { get; set; }
         
     }
 }

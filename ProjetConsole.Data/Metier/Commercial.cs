@@ -4,10 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetConsole
+namespace ProjetConsole.Data.Metier
 {
     public class Commercial:Personne
     {
+
+        public Commercial()
+        {
+            Type = EnumTypePersonne.Commercial;
+        }
 
         public static void DemarcherClient()
         {

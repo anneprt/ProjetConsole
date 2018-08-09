@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole.Data.Metier
 {
-    public class AgencePartenaire
+    public enum EnumTypePersonne
     {
+        Client,
+        Commercial
     }
 }

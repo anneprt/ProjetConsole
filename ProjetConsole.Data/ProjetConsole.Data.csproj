@@ -45,11 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VoyageDonnees.cs" />
+    <Compile Include="CommercialDonnees.cs" />
+    <Compile Include="DestinationDonnees.cs" />
+    <Compile Include="ClientDonnees.cs" />
+    <Compile Include="IAccesDonnees.cs" />
     <Compile Include="Metier\AgencePartenaire.cs" />
     <Compile Include="Metier\Assurance.cs" />
     <Compile Include="Metier\Client.cs" />
     <Compile Include="Metier\Commercial.cs" />
     <Compile Include="Metier\Destination.cs" />
+    <Compile Include="Metier\EnumTypePersonne.cs" />
     <Compile Include="Metier\Personne.cs" />
     <Compile Include="Metier\Reservation.cs" />
     <Compile Include="Metier\Voyage.cs" />

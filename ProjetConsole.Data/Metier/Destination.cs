@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetConsole
+namespace ProjetConsole.Data.Metier
 {
     public class Destination
     {
+        public string Id { get; set; }
         public string Continent { get; set; }
         public string Pays { get; set; }
         public string Region { get; set; }

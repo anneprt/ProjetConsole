@@ -1,4 +1,6 @@
-﻿using ProjetConsole.Outils;
+﻿using ProjetConsole.Business;
+using ProjetConsole.Data.Metier;
+using ProjetConsole.Outils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +11,33 @@ namespace ProjetConsole
 {
 	public class Program
 	{
+        static Commercial commercialConnecte = null;
+        static GestionClientService gestionClientService = new GestionClientService();
         static List<Voyage> Voyages = new List<Voyage>();
 
 		static void Main(string[] args)
 		{
+            InitialisationService.Initialiser();
 			OutilsConsole.AfficherEntete();
 
-			Console.WriteLine("Veuillez saisir votre identifiant pour continuer");
+            while (commercialConnecte == null)
+            {
+                Console.WriteLine("Veuillez saisir votre identifiant pour continuer");
+                string idConnexion = Console.ReadLine();
+                try
+                {
+                    commercialConnecte = gestionClientService.RecupererCommercialParId(idConnexion);
+                }
+                catch (Exception erreur)
+                {
+                    OutilsConsole.AfficherMessageErreur(erreur.Message);
+                }
+            }
 
-			AfficherMenu();
+            Console.Clear();
+            OutilsConsole.AfficherEntete();
+            Console.WriteLine($"Bonjour {commercialConnecte.Nom} {commercialConnecte.Prenom}");
+            AfficherMenu();
 
 
 			bool continuer = true;
