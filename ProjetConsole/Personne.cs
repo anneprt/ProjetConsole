@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
-    class Personne
-    {
-    }
+	public class Personne
+	{
+		
+	}
 }

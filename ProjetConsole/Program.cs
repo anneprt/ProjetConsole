@@ -15,8 +15,11 @@ namespace ProjetConsole
 			Console.WriteLine("*****************************");
 			Console.WriteLine("\n");
 
-			Console.WriteLine("Saisir votre identifiant pour continuer :");
+			
+			//IdClient.Client= OutilsConsole.SaisirChaineObligatoire("Saisir votre identifiant pour continuer", "Ce chanmp est requis, veuillez rentrer votre identifiant");
+
 			Console.ReadKey();
+
 
 
 
