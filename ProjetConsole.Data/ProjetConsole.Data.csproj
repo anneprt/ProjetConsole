@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReservationDonnees.cs" />
     <Compile Include="VoyageDonnees.cs" />
     <Compile Include="CommercialDonnees.cs" />
     <Compile Include="DestinationDonnees.cs" />

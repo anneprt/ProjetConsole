@@ -7,55 +7,57 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole.Data.Metier
 {
-    public class Reservation
-    {
-        public string NumeroReservation { get; set; }
+	public class Reservation
+	{
+		public string NumeroReservation { get; set; }
 
-        public string NumeroCB { get; set; }
-        public string Etat { get; set; }
-        public Client Client { get; set; }
-        public Voyage Voyage { get; set; }
-        public List<Client> Accompagnant { get; set; }
+		public string NumeroCb { get; set; }
 
-        public double CalculerCoutTotal()
-        {
-            double coutTotal;
-            coutTotal = CalculerTarifReduit(Client);
-            foreach (Client accompagnant in Accompagnant)
-            {
-                coutTotal = coutTotal + CalculerTarifReduit(accompagnant);
-            }
-            return coutTotal;
-        }
+		public enum EtatDossier
+		{
+			EnAttente = 1,
+			EnCours = 2,
+			Refuse = 3,
+			Accepte = 4
 
-        private double CalculerTarifReduit(Client client)
-        {
-            if (OutilsDate.CalculerAge(client.DateNaissance) < 12)
-            {
-                return Voyage.Tarif * 0.4;
-            }
-            return Voyage.Tarif;
-        }
+		}
+		
+		public Client Client { get; set; }
+		public Voyage Voyage { get; set; }
+		public List<Client> Accompagnant { get; set; }
 
-        public enum EtatDossier
-        {
-            EnAttente = 1,
-            EnCours = 2,
-            Refuse = 3,
-            Accepte = 4
+		public double CalculerCoutTotal()
+		{
+			double coutTotal;
+			coutTotal = CalculerTarifReduit(Client);
+			foreach (Client accompagnant in Accompagnant)
+			{
+				coutTotal = coutTotal + CalculerTarifReduit(accompagnant);
+			}
+			return coutTotal;
+		}
 
-        }
-        public class EtatReservation 
-            {
-            public EtatDossier EtatDossier { get; set; }
-            }
+		private double CalculerTarifReduit(Client client)
+		{
+			if (OutilsDate.CalculerAge(client.DateNaissance) < 12)
+			{
+				return Voyage.Tarif * 0.4;
+			}
+			return Voyage.Tarif;
+		}
+
+	   
+		public class EtatReservation 
+			{
+			public EtatDossier EtatDossier { get; set; }
+			}
 
 
 
-        static void DemanderEtatDossier () 
-        {
-            
+		static void DemanderEtatDossier () 
+		{
+			
 
-        } 
+		} 
 }
 }
