@@ -48,11 +48,13 @@ namespace ProjetConsole.Data
                     Client client = new Client()
                     {
                         Id = champs[0],
-                        Nom = champs[1],
-                        Prenom = champs[2],
-                        Email = champs[3],
-                        DateNaissance = DateTime.Parse(champs[4]),
-                        Telephone = champs[5]
+                        Civilite = champs[1],
+                        Nom = champs[2],
+                        Prenom = champs[3],
+                        Adresse = champs[4],
+                        Email = champs[5],
+                        DateNaissance = DateTime.Parse(champs[6]),
+                        Telephone = champs[7]
                     };
                     this.clients.Add(client);
                 }
@@ -67,8 +69,10 @@ namespace ProjetConsole.Data
                 contenuFichier.AppendLine(string.Join(
                                             "|",
                                             client.Id,
+                                            client.Civilite,
                                             client.Nom,
                                             client.Prenom,
+                                            client.Adresse,
                                             client.Email,
                                             client.DateNaissance.ToShortDateString(),
                                             client.Telephone));

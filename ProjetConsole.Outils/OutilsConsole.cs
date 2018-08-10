@@ -63,5 +63,24 @@ namespace ProjetConsole.Outils
 		}
 
 
+        public static DateTime SaisirDateObligatoire(string message)
+        {
+            Console.WriteLine(message);
+            string saisie = Console.ReadLine();
+            DateTime date;
 
-	}	}
+            while (string.IsNullOrEmpty(saisie)
+                || !DateTime.TryParse(saisie, out date))
+
+            {
+                var messageErreur = string.IsNullOrEmpty(saisie)
+                    ? "Champ obligatoire.Recommencez:"
+                    : "Saisie invalide.Recommencez :";
+                AfficherMessageErreur(messageErreur);
+                saisie = Console.ReadLine();
+
+            }
+            return date;
+        }
+
+    }	}

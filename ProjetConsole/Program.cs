@@ -295,6 +295,72 @@ namespace ProjetConsole
 			OutilsConsole.AfficherRetourMenu();
 
 		}
-	}
+
+        static void AjouterClient()
+        {
+            var client = new Client(clientDonnees);
+
+            Console.WriteLine("Ajout d'un client");
+            client.Civilite = OutilsConsole.SaisirChaineObligatoire("Entrez la civilité du client", "Ce chanmp est requis, veuillez rentrer la civilité du client");
+            client.Nom = OutilsConsole.SaisirChaineObligatoire("Entrez le nom du client", "Ce chanmp est requis, veuillez rentrer le nom du client");
+            client.Prenom = OutilsConsole.SaisirChaineObligatoire("Entrez le prénom du client", "Ce chanmp est requis, veuillez rentrer le prénom du client");
+
+            Console.WriteLine("Entrez l'adresse email du client");
+            client.Email = Console.ReadLine();
+            Console.WriteLine("Entrez le numéro de téléphone du client");
+            client.Telephone = Console.ReadLine();
+            Console.WriteLine("Entrez la date de naissance du client");
+            client.DateNaissance = OutilsConsole.SaisirDateObligatoire(Console.ReadLine());
+            ClientDonnees.Add(client);
+
+            OutilsConsole.AfficherMessage("le client est bien ajouté !", ConsoleColor.Cyan);
+            OutilsConsole.AfficherRetourMenu();
+
+        }
+
+
+        static void SupprimerClients()
+        {
+            ListerClients(clients);
+            Console.WriteLine("Entrez le numéro du client à supprimer");
+
+            for (var i = 0; i < clients.Count; i++)
+            {
+                Console.WriteLine($"-{i + 1}- {clients[i]}");
+            }
+
+
+            var index = int.Parse(Console.ReadLine());
+
+
+            if (index > 0 && index <= clients.Count)
+            {
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Etes-vous sûr de vouloir supprimer ce client? o/n");
+                Console.ResetColor();
+                string reponse = Console.ReadLine();
+                switch (reponse)
+                {
+                    case "o":
+                        {
+                            clients.RemoveAt(index - 1);
+                            Console.WriteLine("Client supprimé");
+                            Console.ReadKey();
+                            break;
+                        }
+                    default: break;
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("Cette entrée n'existe pas, faire un autre choix");
+                Console.ReadKey();
+            }
+
+
+        }
+    }
 }
 

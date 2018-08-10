@@ -38,8 +38,8 @@ namespace ProjetConsole.Business
             new Client {Id="0001", Nom="Parrot",Prenom="Alexandre",DateNaissance=DateTime.Parse("03/09/2015"),Email="alex.parrot@bebemail.com",Telephone="123558417"},
             new Client {Id="0002", Nom="Moi",Prenom="Anne",DateNaissance=DateTime.Parse("13/07/1982"),Email="alex.parrot@bebemail.com",Telephone="123558417"},
             new Client {Id="0003", Nom="Dupont",Prenom="Sylvain",DateNaissance=DateTime.Parse("13/07/1972"),Email="dsggdt@bebemail.com",Telephone="654651"},
-            new Client {Id="0004", Nom="Dupont",Prenom="Lara",DateNaissance=DateTime.Parse("13/07/2003"),Email="dsfgdsgt@bebemail.com",Telephone="651465161"},
-            new Client {Id="0005", Nom="Parrot",Prenom="Cristtiano",DateNaissance=DateTime.Parse("13/07/2009"),Email="gsdgdsg@bebemail.com",Telephone="65615616"},
+            new Client {Id="0004", Nom="Farot",Prenom="Lara",DateNaissance=DateTime.Parse("13/07/2003"),Email="dsfgdsgt@bebemail.com",Telephone="651465161"},
+            new Client {Id="0005", Nom="Zoroupo",Prenom="Cristtiano",DateNaissance=DateTime.Parse("13/07/2009"),Email="gsdgdsg@bebemail.com",Telephone="65615616"},
         };
 
         private static List<Commercial> commerciaux = new List<Commercial>
