@@ -50,7 +50,7 @@ namespace ProjetConsole.Data
 						NumeroReservation= champs[0],
 						NumeroCb = champs[1],
 						EtatDosssier = champs[2],
-						Client = Client.TryParse(champs[3], out reservation),*/
+						Client = Client.TryParse(champs[3], out reservation),
 						Voyage = voyageDonnees.RecupererVoyageParId(champs[4]),
 						Accompagnant = champs[5]
 					};
@@ -82,7 +82,7 @@ namespace ProjetConsole.Data
 
 		public string getCheminFichier()
 		{
-			return "C:\\Temp\\ProjetConsole\\Client.txt";
+			return "C:\\Temp\\ProjetConsole\\Reservation.txt";
 		}
 
 		public bool FichierExiste()

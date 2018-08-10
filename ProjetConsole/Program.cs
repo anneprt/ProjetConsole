@@ -37,7 +37,7 @@ namespace ProjetConsole
 			Console.Clear();
 			OutilsConsole.AfficherEntete();
 			OutilsConsole.AfficherMessage($"Bonjour {commercialConnecte.Nom} {commercialConnecte.Prenom}\n", ConsoleColor.Cyan);
-			//Console.WriteLine($"Bonjour {commercialConnecte.Nom} {commercialConnecte.Prenom}\n");
+			
 			AfficherMenu();
 
 
@@ -57,16 +57,19 @@ namespace ProjetConsole
 						break;
 					case "2":
 						Console.Clear();
+						OutilsConsole.AfficherMessage("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application", ConsoleColor.Red);
 						//ReserverVoyage();
 						continuer = false;
 						break;
 					case "3":
 						Console.Clear();
+						OutilsConsole.AfficherMessage("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application", ConsoleColor.Red);
 						//AnnulerVoyage();
 						continuer = false;
 						break;
 					case "4":
 						Console.Clear();
+						OutilsConsole.AfficherMessage("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application", ConsoleColor.Red);
 						//ConsulterDossier();
 						continuer = false;
 						break;
@@ -106,7 +109,7 @@ namespace ProjetConsole
 
 			Console.WriteLine($"{ item1}\n{ item2}\n{ item3}\n{item4}\n{item5}\n{item6}");
 
-			
+
 		}
 
 		public static void ListerVoyages()
@@ -186,12 +189,17 @@ namespace ProjetConsole
 						break;
 					case "4":
 						Console.Clear();
-						//AjouterClient();
+						AjouterClient();
 						continuer = false;
 						break;
 					case "5":
 						Console.Clear();
-						//SupprimerClient();
+						SupprimerClient();
+						continuer = false;
+						break;
+					case "6":
+						Console.Clear();
+						OutilsConsole.AfficherMessage("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application", ConsoleColor.Red);
 						continuer = false;
 						break;
 					case "q":
@@ -296,71 +304,64 @@ namespace ProjetConsole
 
 		}
 
-        static void AjouterClient()
-        {
-            var client = new Client(clientDonnees);
+		static void AjouterClient()
+		{
+			var client = new Client();
 
-            Console.WriteLine("Ajout d'un client");
-            client.Civilite = OutilsConsole.SaisirChaineObligatoire("Entrez la civilité du client", "Ce chanmp est requis, veuillez rentrer la civilité du client");
-            client.Nom = OutilsConsole.SaisirChaineObligatoire("Entrez le nom du client", "Ce chanmp est requis, veuillez rentrer le nom du client");
-            client.Prenom = OutilsConsole.SaisirChaineObligatoire("Entrez le prénom du client", "Ce chanmp est requis, veuillez rentrer le prénom du client");
+			Console.WriteLine("Ajout d'un client");
+			client.Civilite = OutilsConsole.SaisirChaineObligatoire("Entrez la civilité du client", "Ce chanmp est requis, veuillez rentrer la civilité du client");
+			client.Nom = OutilsConsole.SaisirChaineObligatoire("Entrez le nom du client", "Ce chanmp est requis, veuillez rentrer le nom du client");
+			client.Prenom = OutilsConsole.SaisirChaineObligatoire("Entrez le prénom du client", "Ce chanmp est requis, veuillez rentrer le prénom du client");
 
-            Console.WriteLine("Entrez l'adresse email du client");
-            client.Email = Console.ReadLine();
-            Console.WriteLine("Entrez le numéro de téléphone du client");
-            client.Telephone = Console.ReadLine();
-            Console.WriteLine("Entrez la date de naissance du client");
-            client.DateNaissance = OutilsConsole.SaisirDateObligatoire(Console.ReadLine());
-            ClientDonnees.Add(client);
+			Console.WriteLine("Entrez l'adresse email du client");
+			client.Email = Console.ReadLine();
+			Console.WriteLine("Entrez le numéro de téléphone du client");
+			client.Telephone = Console.ReadLine();
+			Console.WriteLine("Entrez la date de naissance du client");
+			client.DateNaissance = OutilsConsole.SaisirDateObligatoire(Console.ReadLine());
+			client.Add(client);
 
-            OutilsConsole.AfficherMessage("le client est bien ajouté !", ConsoleColor.Cyan);
-            OutilsConsole.AfficherRetourMenu();
+			OutilsConsole.AfficherMessage("le client est bien ajouté !", ConsoleColor.Cyan);
+			OutilsConsole.AfficherRetourMenu();
 
-        }
-
-
-        static void SupprimerClients()
-        {
-            ListerClients(clients);
-            Console.WriteLine("Entrez le numéro du client à supprimer");
-
-            for (var i = 0; i < clients.Count; i++)
-            {
-                Console.WriteLine($"-{i + 1}- {clients[i]}");
-            }
+		}
 
 
-            var index = int.Parse(Console.ReadLine());
+		static void SupprimerClients()
+		{
+			ListerClients();
+			Console.WriteLine("Entrez le numéro du client à supprimer");
+			SupprimerClients();
 
 
-            if (index > 0 && index <= clients.Count)
-            {
+			if (index > 0 && index <= clients.Count)
+			{
 
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Etes-vous sûr de vouloir supprimer ce client? o/n");
-                Console.ResetColor();
-                string reponse = Console.ReadLine();
-                switch (reponse)
-                {
-                    case "o":
-                        {
-                            clients.RemoveAt(index - 1);
-                            Console.WriteLine("Client supprimé");
-                            Console.ReadKey();
-                            break;
-                        }
-                    default: break;
+				Console.ForegroundColor = ConsoleColor.Red;
+				Console.WriteLine("Etes-vous sûr de vouloir supprimer ce client? o/n");
+				Console.ResetColor();
+				string reponse = Console.ReadLine();
+				switch (reponse)
+				{
+					case "o":
+						{
+							clients.RemoveAt(index - 1);
+							Console.WriteLine("Client supprimé");
+							Console.ReadKey();
+							break;
+						}
+					default: break;
 
-                }
-            }
-            else
-            {
-                Console.WriteLine("Cette entrée n'existe pas, faire un autre choix");
-                Console.ReadKey();
-            }
+				}
+			}
+			else
+			{
+				Console.WriteLine("Cette entrée n'existe pas, faire un autre choix");
+				Console.ReadKey();
+			}
 
 
-        }
-    }
+		}
+	}
 }
 
