@@ -8,23 +8,19 @@ namespace ProjetConsole.Data.Metier
 {
 	public class Client :Personne
 	{
-        public Client()
-        {
-            Type = EnumTypePersonne.Client;
-        }
-
-        public string Telephone { get; set; }
-        public DateTime DateNaissance { get; set; }
-
-
-
-
-
-        public void CalculerAge()
+		public Client()
 		{
-			//var dateNaissance = DateTime.Parse(saisie);//la variable vient de la liste du fichier client
-
-			//var age = DateTime.Now.Date.Subtract(dateNaissance).Days / 365;
+			Type = EnumTypePersonne.Client;
 		}
+
+		public string Telephone { get; set; }
+		public DateTime DateNaissance { get; set; }
+		public string Adresse { get; set; }
+
+
+
+
+
+		
 	}
 }

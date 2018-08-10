@@ -8,5 +8,6 @@ namespace ProjetConsole.Data.Metier
 {
     public class AgencePartenaire
     {
-    }
+		public string Id { get; set; }
+	}
 }
