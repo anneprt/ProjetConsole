@@ -8,7 +8,8 @@ namespace ProjetConsole.Data.Metier
 {
     public enum EnumTypePersonne
     {
-        Client,
-        Commercial
+        Client=1,
+		Accompagnant=2,
+        Commercial=3,
     }
 }
