@@ -194,7 +194,7 @@ namespace ProjetConsole
 						break;
 					case "5":
 						Console.Clear();
-						SupprimerClient();
+						SupprimerClients();
 						continuer = false;
 						break;
 					case "6":
@@ -329,35 +329,40 @@ namespace ProjetConsole
 
 		static void SupprimerClients()
 		{
-			ListerClients();
+			ListerClients(gestionClientService.RecupererTousLesClients());
 			Console.WriteLine("Entrez le numéro du client à supprimer");
-			SupprimerClients();
-
-
-			if (index > 0 && index <= clients.Count)
+			bool continuer = true;
+			while (continuer == true)
 			{
+				var identifiant = Console.ReadLine();
 
-				Console.ForegroundColor = ConsoleColor.Red;
-				Console.WriteLine("Etes-vous sûr de vouloir supprimer ce client? o/n");
-				Console.ResetColor();
-				string reponse = Console.ReadLine();
-				switch (reponse)
+
+
+				if (!string.IsNullOrWhiteSpace(identifiant))
 				{
-					case "o":
-						{
-							clients.RemoveAt(index - 1);
-							Console.WriteLine("Client supprimé");
-							Console.ReadKey();
-							break;
-						}
-					default: break;
 
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine("Etes-vous sûr de vouloir supprimer ce client? o/n");
+					Console.ResetColor();
+					string reponse = Console.ReadLine();
+					switch (reponse)
+					{
+						case "o":
+							{
+								gestionClientService.SupprimerUnClient(identifiant);
+								Console.WriteLine("Client supprimé");
+								Console.ReadKey();
+								break;
+							}
+						default: break;
+
+					}
 				}
-			}
-			else
-			{
-				Console.WriteLine("Cette entrée n'existe pas, faire un autre choix");
-				Console.ReadKey();
+				else
+				{
+					Console.WriteLine("Cette entrée n'existe pas, faire un autre choix");
+					Console.ReadKey();
+				}
 			}
 
 

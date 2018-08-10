@@ -12,11 +12,19 @@ namespace ProjetConsole.Business
     {
         private VoyageDonnees voyageDonnees = new VoyageDonnees();
         private DestinationDonnees destinationDonnees = new DestinationDonnees();
+		private ReservationDonnees reservationDonnees = new ReservationDonnees();
        
         public List<Voyage> RecupererTousLesVoyages()
         {
             return voyageDonnees.GetListe().ToList();
         }
+
+		public List<Reservation> RecupererTouteslesReservation()
+		{
+			return reservationDonnees.GetListe().ToList();
+
+
+		}
 
        
     }

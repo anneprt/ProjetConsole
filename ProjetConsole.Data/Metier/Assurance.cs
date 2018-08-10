@@ -13,9 +13,9 @@ namespace ProjetConsole.Data.Metier
 	}
 	public enum TypeAssurance
 	{
-		Annulation=1,
-		Rapatriement=2,
-		Vol=2
+		AssuranceAnnulation=1,
+		AssuranceRapatriement=2,
+		AssuranceVol=2
 	}
 
 }
