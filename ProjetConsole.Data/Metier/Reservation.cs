@@ -19,13 +19,13 @@ namespace ProjetConsole.Data.Metier
 
         public double CalculerCoutTotal()
         {
-            double CoutTotal;
-            CoutTotal = CalculerTarifReduit(Client);
-            foreach(Client accompagnant in Accompagnant)
+            double coutTotal;
+            coutTotal = CalculerTarifReduit(Client);
+            foreach (Client accompagnant in Accompagnant)
             {
-                CoutTotal = CoutTotal + CalculerTarifReduit(accompagnant);
+                coutTotal = coutTotal + CalculerTarifReduit(accompagnant);
             }
-            return CoutTotal;
+            return coutTotal;
         }
 
         private double CalculerTarifReduit(Client client)
@@ -37,5 +37,25 @@ namespace ProjetConsole.Data.Metier
             return Voyage.Tarif;
         }
 
-    }
+        public enum EtatDossier
+        {
+            EnAttente = 1,
+            EnCours = 2,
+            Refuse = 3,
+            Accepte = 4
+
+        }
+        public class EtatReservation 
+            {
+            public EtatDossier EtatDossier { get; set; }
+            }
+
+
+
+        static void DemanderEtatDossier () 
+        {
+            
+
+        } 
+}
 }
