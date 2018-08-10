@@ -71,7 +71,7 @@ namespace ProjetConsole.Data
 			{
 				contenuFichier.AppendLine(string.Join(
 											"|",
-											reservation.NumeroReservation,
+											reservationDonnees.NumeroReservation,
 											reservation.NumeroCb,
 											reservation.EtatDossier,
 											reservation.Client.Id,
