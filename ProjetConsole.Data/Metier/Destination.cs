@@ -14,4 +14,5 @@ namespace ProjetConsole.Data.Metier
         public string Region { get; set; }
         public string Description { get; set; }
     }
+        
 }
