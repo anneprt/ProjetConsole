@@ -93,5 +93,14 @@ namespace ProjetConsole.Data
         {
             return File.Exists(getCheminFichier());
         }
+
+        public Client RecupererClientParId(string id)
+        {
+            InitialiserListe();
+            var resultat = from client in this.clients
+                           where client.Id == id
+                           select client;
+            return resultat.First();
+        }
     }
 }

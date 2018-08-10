@@ -12,17 +12,8 @@ namespace ProjetConsole.Data.Metier
 		public string NumeroReservation { get; set; }
 
 		public string NumeroCb { get; set; }
-
-		public enum EtatDossier
-		{
-			EnAttente = 1,
-			EnCours = 2,
-			Refuse = 3,
-			Accepte = 4
-
-		}
-		
-		public Client Client { get; set; }
+        public EnumEtatDossier EtatDossier { get; set; }
+        public Client Client { get; set; }
 		public Voyage Voyage { get; set; }
 		public List<Client> Accompagnant { get; set; }
 
@@ -46,18 +37,18 @@ namespace ProjetConsole.Data.Metier
 			return Voyage.Tarif;
 		}
 
-	   
-		public class EtatReservation 
-			{
-			public EtatDossier EtatDossier { get; set; }
-			}
-
-
-
 		static void DemanderEtatDossier () 
 		{
 			
 
-		} 
-}
+		}
+
+        public enum EnumEtatDossier
+        {
+            EnAttente = 1,
+            EnCours = 2,
+            Refuse = 3,
+            Accepte = 4
+        }
+    }
 }

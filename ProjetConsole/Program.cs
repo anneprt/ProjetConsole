@@ -40,7 +40,6 @@ namespace ProjetConsole
 			
 			AfficherMenu();
 
-
 			bool continuer = true;
 			while (continuer == true)
 			{
@@ -51,26 +50,27 @@ namespace ProjetConsole
 					case "1":
 						Console.Clear();
 						ListerVoyages();
-						OutilsConsole.AfficherRetourMenu();
-						Console.ReadKey();
-						continuer = false;
-						break;
+                        continuer = false;
+                        break;
 					case "2":
 						Console.Clear();
 						OutilsConsole.AfficherMessage("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application", ConsoleColor.Red);
+                        Console.ReadKey();
 						//ReserverVoyage();
 						continuer = false;
 						break;
 					case "3":
 						Console.Clear();
 						OutilsConsole.AfficherMessage("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application", ConsoleColor.Red);
+                        Console.ReadKey();
 						//AnnulerVoyage();
 						continuer = false;
 						break;
 					case "4":
 						Console.Clear();
 						OutilsConsole.AfficherMessage("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application", ConsoleColor.Red);
-						//ConsulterDossier();
+                        //ConsulterDossier();
+                        Console.ReadKey();
 						continuer = false;
 						break;
 					case "5":
@@ -174,29 +174,32 @@ namespace ProjetConsole
 						Console.Clear();
 						ListerClients();
 						OutilsConsole.AfficherRetourMenu();
-						Console.ReadKey();
 						continuer = false;
 						break;
 					case "2":
 						Console.Clear();
 						FiltrerClients();
-						continuer = false;
+                        OutilsConsole.AfficherRetourMenu();
+                        continuer = false;
 						break;
 					case "3":
 						Console.Clear();
 						TrierClients();
-						continuer = false;
+                        OutilsConsole.AfficherRetourMenu();
+                        continuer = false;
 						break;
 					case "4":
 						Console.Clear();
 						AjouterClient();
-						continuer = false;
-						break;
+                        OutilsConsole.AfficherRetourMenu();
+                        continuer = false;
+                        break;
 					case "5":
 						Console.Clear();
 						SupprimerClient();
-						continuer = false;
-						break;
+                        OutilsConsole.AfficherRetourMenu();
+                        continuer = false;
+                        break;
 					case "6":
 						Console.Clear();
 						OutilsConsole.AfficherMessage("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application", ConsoleColor.Red);
@@ -208,17 +211,13 @@ namespace ProjetConsole
 						continuer = false;
 						break;
 					default:
-						break;
-				}
-
-				if (continuer == true)
-				{
-					OutilsConsole.AfficherMessageErreur("Touche incorrecte");
+                        OutilsConsole.AfficherMessageErreur("Touche incorrecte");
+                        continuer = true;
+                        break;
 				}
 
 			}
 			Console.Clear();
-
 		}
 
 		public static void ListerClients(List<Client> clients = null)
@@ -308,58 +307,72 @@ namespace ProjetConsole
 		{
 			var client = new Client();
 
+            // Ajout d'un nouveau client
 			Console.WriteLine("Ajout d'un client");
-			client.Civilite = OutilsConsole.SaisirChaineObligatoire("Entrez la civilité du client", "Ce chanmp est requis, veuillez rentrer la civilité du client");
-			client.Nom = OutilsConsole.SaisirChaineObligatoire("Entrez le nom du client", "Ce chanmp est requis, veuillez rentrer le nom du client");
-			client.Prenom = OutilsConsole.SaisirChaineObligatoire("Entrez le prénom du client", "Ce chanmp est requis, veuillez rentrer le prénom du client");
 
-			Console.WriteLine("Entrez l'adresse email du client");
+            // On incrémente le dernier identifiant grâce à Linq
+            client.Id = gestionClientService.IncrementerIdentifiantClient();
+
+            // On renseigne les champs obligatoires
+            client.Civilite = OutilsConsole.SaisirChaineObligatoire("Entrez la civilité du client", "Ce champ est requis, veuillez rentrer la civilité du client");
+			client.Nom = OutilsConsole.SaisirChaineObligatoire("Entrez le nom du client", "Ce champ est requis, veuillez rentrer le nom du client");
+			client.Prenom = OutilsConsole.SaisirChaineObligatoire("Entrez le prénom du client", "Ce champ est requis, veuillez rentrer le prénom du client");
+
+            // On renseigne les champs facultatifs
+            Console.WriteLine("Entrez l'adresse email du client");
 			client.Email = Console.ReadLine();
 			Console.WriteLine("Entrez le numéro de téléphone du client");
 			client.Telephone = Console.ReadLine();
-			Console.WriteLine("Entrez la date de naissance du client");
-			client.DateNaissance = OutilsConsole.SaisirDateObligatoire(Console.ReadLine());
-			client.Add(client);
 
-			OutilsConsole.AfficherMessage("le client est bien ajouté !", ConsoleColor.Cyan);
+			client.DateNaissance = OutilsConsole.SaisirDateObligatoire("Entrez la date de naissance du client");
+
+            // On appelle le service en lui passant le client pour ajouter dans la liste
+            gestionClientService.AjouterUnClient(client);
+
+			OutilsConsole.AfficherMessage("Le client est bien ajouté !", ConsoleColor.Cyan);
 			OutilsConsole.AfficherRetourMenu();
-
 		}
 
 
-		static void SupprimerClients()
+		static void SupprimerClient()
 		{
+            // On affiche la liste des clients
 			ListerClients();
-			Console.WriteLine("Entrez le numéro du client à supprimer");
-			SupprimerClients();
 
+            bool continuer = true;
+            while (continuer == true)
+            {
+                try {
+                Console.WriteLine("Entrez le numéro du client à supprimer");
+                var identifiant = Console.ReadLine();
 
-			if (index > 0 && index <= clients.Count)
-			{
+                   
 
-				Console.ForegroundColor = ConsoleColor.Red;
-				Console.WriteLine("Etes-vous sûr de vouloir supprimer ce client? o/n");
-				Console.ResetColor();
-				string reponse = Console.ReadLine();
-				switch (reponse)
-				{
-					case "o":
-						{
-							clients.RemoveAt(index - 1);
-							Console.WriteLine("Client supprimé");
-							Console.ReadKey();
-							break;
-						}
-					default: break;
+                    OutilsConsole.AfficherMessageErreur("Etes-vous sûr de vouloir supprimer ce client? o/n");
+                    switch (Console.ReadLine())
+                    {
+                        case "o":
+                            {
+                                // On supprime le client. Si le client n'existe pas, une exception est levée et le message est affiché
+                                gestionClientService.SupprimerUnClient(identifiant);
+                                Console.WriteLine("Client supprimé");
+                                Console.ReadKey();
+                                continuer = false;
+                                break;
+                            }
+                        case "n":
+                            continuer = false;
+                            break;
+                        default:
+                            break;
 
-				}
-			}
-			else
-			{
-				Console.WriteLine("Cette entrée n'existe pas, faire un autre choix");
-				Console.ReadKey();
-			}
-
+                    }
+                } catch (Exception erreur)
+                {
+                    // Affichage des erreurs si exception
+                    OutilsConsole.AfficherMessageErreur(erreur.Message);
+                }
+            }
 
 		}
 	}

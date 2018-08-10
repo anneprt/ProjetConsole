@@ -31,6 +31,25 @@ namespace ProjetConsole.Business
             return resultat.First();
         }
 
+        public Client RecupererClientParId(string id)
+        {
+            var resultat = from client in clientDonnees.GetListe()
+                           where client.Id == id
+                           select client;
+
+            if (resultat.Count() > 1)
+            {
+                throw new Exception($"Il existe plus d'un client ayant l'identifiant {id}");
+            }
+
+            if (resultat.Count() == 0)
+            {
+                throw new Exception("Identifiant incorrect...");
+            }
+            return resultat.First();
+        }
+
+
         public List<Client> RecupererTousLesClients()
         {
             return clientDonnees.GetListe().ToList();
@@ -38,11 +57,13 @@ namespace ProjetConsole.Business
 
         public void SupprimerUnClient(string id)
         {
-            var resultat = from client in clientDonnees.GetListe()
-                         where client.Id == id
-                         select client;
+            var resultat = RecupererClientParId(id);
+            clientDonnees.Supprimer(resultat);
+        }
 
-            clientDonnees.Supprimer(resultat.First());
+        public void AjouterUnClient(Client client)
+        {
+            clientDonnees.Enregistrer(client);
         }
 
         public List<Client> FiltrerLesClientsParNomParPrenom(string saisie)
@@ -66,6 +87,16 @@ namespace ProjetConsole.Business
             return (from client in clientDonnees.GetListe()
                     orderby client.Prenom ascending
                     select client).ToList();
+        }
+
+        public string IncrementerIdentifiantClient()
+        {
+            // On récupère le dernier identifiant dans la liste avec Linq
+            string dernierId = (from client in clientDonnees.GetListe() select client.Id).Max();
+            // On transforme la chaine de caractère en int et on ajoute + 1
+            int dernierIdIncremente = int.Parse(dernierId) + 1;
+            // On retourne le dernier id incrémenté au format chaine de caractère et on remplie par des "0" à gauche sur 4 caractères
+            return dernierIdIncremente.ToString().PadLeft(4, '0');
         }
     }
 

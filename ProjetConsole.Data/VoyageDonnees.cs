@@ -86,5 +86,14 @@ namespace ProjetConsole.Data
         {
             return File.Exists(getCheminFichier());
         }
+
+        internal Voyage RecupererVoyageParId(string id)
+        {
+            InitialiserListe();
+            var resultat = from voyage in this.voyages
+                           where voyage.Id == id
+                           select voyage;
+            return resultat.First();
+        }
     }
 }

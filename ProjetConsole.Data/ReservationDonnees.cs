@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ProjetConsole.Data.Metier.Reservation;
 
 namespace ProjetConsole.Data
 {
@@ -45,15 +46,19 @@ namespace ProjetConsole.Data
 				List<string[]> listeChamp = OutilsFichier.LireFichier(getCheminFichier());
 				foreach (string[] champs in listeChamp)
 				{
-					Reservation reservation = new Reservation()
-					{
-						NumeroReservation= champs[0],
-						NumeroCb = champs[1],
-						EtatDosssier = champs[2],
-						Client = Client.TryParse(champs[3], out reservation),
-						Voyage = voyageDonnees.RecupererVoyageParId(champs[4]),
-						Accompagnant = champs[5]
-					};
+                    // Convertie la valeur en enumération
+                    Enum.TryParse(champs[2], out EnumEtatDossier etat);
+
+                    Reservation reservation = new Reservation()
+                    {
+                        NumeroReservation = champs[0],
+                        NumeroCb = champs[1],
+                        EtatDossier = etat,
+                        Client = new ClientDonnees().RecupererClientParId(champs[3]),
+                        Voyage = new VoyageDonnees().RecupererVoyageParId(champs[4]),
+                        Accompagnant = (from accompagnantId in champs[5].Split(',') select new ClientDonnees().RecupererClientParId(accompagnantId)).ToList()
+
+                    };
 					this.reservations.Add(reservation);
 				}
 			}
@@ -62,16 +67,17 @@ namespace ProjetConsole.Data
 		public void EcrireFichier()
 		{
 			var contenuFichier = new StringBuilder();
-			foreach (var client in this.reservations)
+			foreach (var reservation in this.reservations)
 			{
 				contenuFichier.AppendLine(string.Join(
 											"|",
 											reservation.NumeroReservation,
 											reservation.NumeroCb,
 											reservation.EtatDossier,
-											reservation.Email,
-											reservation.DateNaissance.ToShortDateString(),
-											reservation.Accompagnant));
+											reservation.Client.Id,
+											reservation.Voyage.Id,
+											String.Join(",", (from accompagnant in reservation.Accompagnant select accompagnant.Id))
+                                            ));
 			}
 			// On récupère le chemin du dossier, en gros on enlève le nom du fichier dans le chemin
 			var dossier = Path.GetDirectoryName(getCheminFichier());
