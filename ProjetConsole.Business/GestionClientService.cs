@@ -49,7 +49,6 @@ namespace ProjetConsole.Business
             return resultat.First();
         }
 
-
         public List<Client> RecupererTousLesClients()
         {
             return clientDonnees.GetListe().ToList();
@@ -91,6 +90,7 @@ namespace ProjetConsole.Business
 
         public string IncrementerIdentifiantClient()
         {
+            // Source Google
             // On récupère le dernier identifiant dans la liste avec Linq
             string dernierId = (from client in clientDonnees.GetListe() select client.Id).Max();
             // On transforme la chaine de caractère en int et on ajoute + 1

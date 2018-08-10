@@ -28,7 +28,7 @@ namespace ProjetConsole.Business
             new Voyage{Id="0002",DateAller=DateTime.Parse("14/08/2018"),DateRetour=DateTime.Parse("22/08/2018"),Tarif=1050d, Destination=destinations[1]},
             new Voyage{Id="0003",DateAller=DateTime.Parse("24/08/2018"),DateRetour=DateTime.Parse("26/08/2018"),Tarif=1070d, Destination=destinations[2]},
             new Voyage{Id="0004",DateAller=DateTime.Parse("25/08/2018"),DateRetour=DateTime.Parse("28/08/2018"),Tarif=1030d, Destination=destinations[3]},
-            new Voyage{Id="0005",DateAller=DateTime.Parse("18/08/2018"),DateRetour=DateTime.Parse("22/08/2018"),Tarif=10d, Destination=destinations[4]},
+            new Voyage{Id="0005",DateAller=DateTime.Parse("18/08/2018"),DateRetour=DateTime.Parse("22/08/2018"),Tarif=1050d, Destination=destinations[4]},
 
        
         };

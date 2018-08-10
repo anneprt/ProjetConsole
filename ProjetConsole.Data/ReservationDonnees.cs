@@ -46,7 +46,7 @@ namespace ProjetConsole.Data
 				List<string[]> listeChamp = OutilsFichier.LireFichier(getCheminFichier());
 				foreach (string[] champs in listeChamp)
 				{
-                    // Convertie la valeur en enumération
+                    // Pour convertir la valeur en enumération
                     Enum.TryParse(champs[2], out EnumEtatDossier etat);
 
                     Reservation reservation = new Reservation()
@@ -71,7 +71,7 @@ namespace ProjetConsole.Data
 			{
 				contenuFichier.AppendLine(string.Join(
 											"|",
-											reservationDonnees.NumeroReservation,
+											reservation.NumeroReservation,
 											reservation.NumeroCb,
 											reservation.EtatDossier,
 											reservation.Client.Id,

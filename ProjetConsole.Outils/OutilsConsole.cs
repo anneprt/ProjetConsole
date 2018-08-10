@@ -38,13 +38,6 @@ namespace ProjetConsole.Outils
 			Console.ResetColor();
 		}
 
-		public static void AfficherRetourMenu()
-		{
-			Console.WriteLine();
-			AfficherMessage("\n Appuyez sur une touche pour revenir au menu", ConsoleColor.Cyan);
-			Console.ReadKey();
-		}
-
 		public static void AfficherEntete()
 		{
 			Console.WriteLine("*****************************");
@@ -61,7 +54,6 @@ namespace ProjetConsole.Outils
 			texte = texte.Substring(0, Math.Min(texte.Length, longueurAffichage));
 			Console.Write($"{texte.PadRight(longueurAffichage)} | ");
 		}
-
 
         public static DateTime SaisirDateObligatoire(string message)
         {
