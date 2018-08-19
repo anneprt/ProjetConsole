@@ -62,22 +62,18 @@ namespace ProjetConsole
                         break;
                     case "2":
                         Console.Clear();
-                        OutilsConsole.AfficherMessage("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application", ConsoleColor.Red);
-                        AfficherRetourMenu();
-                     
+                        gestionVoyageService.ReserverVoyage("0001", "0002");
                         continuer = false;
                         break;
                     case "3":
                         Console.Clear();
                         OutilsConsole.AfficherMessage("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application", ConsoleColor.Red);
                         AfficherRetourMenu();
-                     
                         continuer = false;
                         break;
                     case "4":
                         Console.Clear();
                         OutilsConsole.AfficherMessage("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application", ConsoleColor.Red);
-                       
                         AfficherRetourMenu();
                         continuer = false;
                         break;
@@ -374,6 +370,11 @@ namespace ProjetConsole
                     OutilsConsole.AfficherMessageErreur(erreur.Message);
                 }
             }
+
+        }
+
+        static void CreerReservation()
+        {
 
         }
     }

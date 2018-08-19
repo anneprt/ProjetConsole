@@ -69,6 +69,10 @@ namespace ProjetConsole.Data
 			var contenuFichier = new StringBuilder();
 			foreach (var reservation in this.reservations)
 			{
+                if (reservation.Accompagnant == null)
+                {
+                    reservation.Accompagnant = new List<Client>();
+                }
 				contenuFichier.AppendLine(string.Join(
 											"|",
 											reservation.NumeroReservation,

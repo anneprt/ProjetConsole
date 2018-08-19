@@ -87,7 +87,7 @@ namespace ProjetConsole.Data
             return File.Exists(GetCheminFichier());
         }
 
-        internal Voyage RecupererVoyageParId(string id)
+        public Voyage RecupererVoyageParId(string id)
         {
             InitialiserListe();
             var resultat = from voyage in this.voyages
