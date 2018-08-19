@@ -42,7 +42,7 @@ namespace ProjetConsole.Data
             if (this.clients == null)
             {
                 this.clients = new List<Client>();
-                List<string[]> listeChamp = OutilsFichier.LireFichier(getCheminFichier());
+                List<string[]> listeChamp = OutilsFichier.LireFichier(GetCheminFichier());
                 foreach (string[] champs in listeChamp)
                 {
                     Client client = new Client()
@@ -78,20 +78,20 @@ namespace ProjetConsole.Data
                                             client.Telephone));
             }
             // On récupère le chemin du dossier, en gros on enlève le nom du fichier dans le chemin
-            var dossier = Path.GetDirectoryName(getCheminFichier());
+            var dossier = Path.GetDirectoryName(GetCheminFichier());
             // Si le dossier n'existe pas, alors on le crée pour eviter les problèmes
             Directory.CreateDirectory(dossier);
-            File.WriteAllText(getCheminFichier(), contenuFichier.ToString());
+            File.WriteAllText(GetCheminFichier(), contenuFichier.ToString());
         }
 
-        public string getCheminFichier()
+        public string GetCheminFichier()
         {
             return "C:\\Temp\\ProjetConsole\\Client.txt";
         }
 
         public bool FichierExiste()
         {
-            return File.Exists(getCheminFichier());
+            return File.Exists(GetCheminFichier());
         }
 
         public Client RecupererClientParId(string id)

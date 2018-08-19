@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole.Data.Metier
 {
-    public enum EnumTypePersonne
+    public enum TypePersonne
     {
         Client=1,
 		Accompagnant=2,

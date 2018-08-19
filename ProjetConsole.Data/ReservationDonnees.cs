@@ -43,11 +43,11 @@ namespace ProjetConsole.Data
 			if (this.reservations == null)
 			{
 				this.reservations = new List<Reservation>();
-				List<string[]> listeChamp = OutilsFichier.LireFichier(getCheminFichier());
+				List<string[]> listeChamp = OutilsFichier.LireFichier(GetCheminFichier());
 				foreach (string[] champs in listeChamp)
 				{
                     // Pour convertir la valeur en enumération
-                    Enum.TryParse(champs[2], out EnumEtatDossier etat);
+                    Enum.TryParse(champs[2], out StatutEtatDossier etat);
 
                     Reservation reservation = new Reservation()
                     {
@@ -80,20 +80,20 @@ namespace ProjetConsole.Data
                                             ));
 			}
 			// On récupère le chemin du dossier, en gros on enlève le nom du fichier dans le chemin
-			var dossier = Path.GetDirectoryName(getCheminFichier());
+			var dossier = Path.GetDirectoryName(GetCheminFichier());
 			// Si le dossier n'existe pas, alors on le crée pour eviter les problèmes
 			Directory.CreateDirectory(dossier);
-			File.WriteAllText(getCheminFichier(), contenuFichier.ToString());
+			File.WriteAllText(GetCheminFichier(), contenuFichier.ToString());
 		}
 
-		public string getCheminFichier()
+		public string GetCheminFichier()
 		{
 			return "C:\\Temp\\ProjetConsole\\Reservation.txt";
 		}
 
 		public bool FichierExiste()
 		{
-			return File.Exists(getCheminFichier());
+			return File.Exists(GetCheminFichier());
 		}
 	}
 }

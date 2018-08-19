@@ -42,7 +42,7 @@ namespace ProjetConsole.Data
             if (this.destinations == null)
             {
                 this.destinations = new List<Destination>();
-                List<string[]> listeChamp = OutilsFichier.LireFichier(getCheminFichier());
+                List<string[]> listeChamp = OutilsFichier.LireFichier(GetCheminFichier());
                 foreach (string[] champs in listeChamp)
                 {
                     Destination destination = new Destination()
@@ -72,18 +72,18 @@ namespace ProjetConsole.Data
                                             destination.Description
                                            ));
             }
-            Directory.CreateDirectory(Path.GetDirectoryName(getCheminFichier()));
-            File.WriteAllText(getCheminFichier(), contenuFichier.ToString());
+            Directory.CreateDirectory(Path.GetDirectoryName(GetCheminFichier()));
+            File.WriteAllText(GetCheminFichier(), contenuFichier.ToString());
         }
 
-        public string getCheminFichier()
+        public string GetCheminFichier()
         {
             return "C:\\Temp\\ProjetConsole\\Destination.txt";
         }
 
         public bool FichierExiste()
         {
-            return File.Exists(getCheminFichier());
+            return File.Exists(GetCheminFichier());
         }
 
         public Destination RecupererDestinationParId(string id)

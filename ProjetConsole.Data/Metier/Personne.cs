@@ -13,7 +13,7 @@ namespace ProjetConsole.Data.Metier
 		public string Nom { get; set; }
 		public string Prenom { get; set; }
 		public string Email { get; set; }
-		public EnumTypePersonne Type { get; set; }
+		public TypePersonne Type { get; set; }
 		
 	}
 }

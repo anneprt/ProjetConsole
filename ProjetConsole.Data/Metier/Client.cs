@@ -10,7 +10,7 @@ namespace ProjetConsole.Data.Metier
 	{
 		public Client()
 		{
-			Type = EnumTypePersonne.Client;
+			Type = TypePersonne.Client;
 		}
 
 		public string Telephone { get; set; }

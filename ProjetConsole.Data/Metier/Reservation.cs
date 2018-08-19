@@ -12,7 +12,7 @@ namespace ProjetConsole.Data.Metier
 		public string NumeroReservation { get; set; }
 
 		public string NumeroCb { get; set; }
-        public EnumEtatDossier EtatDossier { get; set; }
+        public StatutEtatDossier EtatDossier { get; set; }
         public Client Client { get; set; }
 		public Voyage Voyage { get; set; }
 		public List<Client> Accompagnant { get; set; }
@@ -43,7 +43,7 @@ namespace ProjetConsole.Data.Metier
 
 		}
 
-        public enum EnumEtatDossier
+        public enum StatutEtatDossier
         {
             EnAttente = 1,
             EnCours = 2,

@@ -42,7 +42,7 @@ namespace ProjetConsole.Data
             if (this.commerciaux == null)
             {
                 this.commerciaux = new List<Commercial>();
-                List<string[]> listeChamp = OutilsFichier.LireFichier(getCheminFichier());
+                List<string[]> listeChamp = OutilsFichier.LireFichier(GetCheminFichier());
                 foreach (string[] champs in listeChamp)
                 {
                     Commercial commercial = new Commercial()
@@ -70,18 +70,18 @@ namespace ProjetConsole.Data
                                             commercial.Email
                                            ));
             }
-            Directory.CreateDirectory(Path.GetDirectoryName(getCheminFichier()));
-            File.WriteAllText(getCheminFichier(), contenuFichier.ToString());
+            Directory.CreateDirectory(Path.GetDirectoryName(GetCheminFichier()));
+            File.WriteAllText(GetCheminFichier(), contenuFichier.ToString());
         }
 
-        public string getCheminFichier()
+        public string GetCheminFichier()
         {
             return "C:\\Temp\\ProjetConsole\\Commercial.txt";
         }
 
         public bool FichierExiste()
         {
-            return File.Exists(getCheminFichier());
+            return File.Exists(GetCheminFichier());
         }
     }
 }

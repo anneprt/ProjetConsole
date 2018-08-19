@@ -54,18 +54,18 @@ namespace ProjetConsole.Business
             return clientDonnees.GetListe().ToList();
         }
 
-        public void SupprimerUnClient(string id)
+        public void SupprimerClient(string id)
         {
             var resultat = RecupererClientParId(id);
             clientDonnees.Supprimer(resultat);
         }
 
-        public void AjouterUnClient(Client client)
+        public void AjouterClient(Client client)
         {
             clientDonnees.Enregistrer(client);
         }
 
-        public List<Client> FiltrerLesClientsParNomParPrenom(string saisie)
+        public List<Client> FiltrerClientsParNomParPrenom(string saisie)
         {
             return (from client in clientDonnees.GetListe()
                                 where client.Nom.StartsWith(saisie, StringComparison.OrdinalIgnoreCase)
@@ -74,14 +74,14 @@ namespace ProjetConsole.Business
             
         }
 
-        public List<Client> TrierLesClientsParNom(string saisie)
+        public List<Client> TrierClientsParNom(string saisie)
         {
             return (from client in clientDonnees.GetListe()
                                 orderby client.Nom ascending
                                 select client).ToList();
         }
 
-        public List<Client> TrierLesClientsParPrenom(string saisie)
+        public List<Client> TrierClientsParPrenom(string saisie)
         {
             return (from client in clientDonnees.GetListe()
                     orderby client.Prenom ascending
@@ -95,7 +95,7 @@ namespace ProjetConsole.Business
             string dernierId = (from client in clientDonnees.GetListe() select client.Id).Max();
             // On transforme la chaine de caractère en int et on ajoute + 1
             int dernierIdIncremente = int.Parse(dernierId) + 1;
-            // On retourne le dernier id incrémenté au format chaine de caractère et on remplie par des "0" à gauche sur 4 caractères
+            // On retourne le dernier id incrémenté au format chaine de caractère et on remplit par des "0" à gauche sur 4 caractères
             return dernierIdIncremente.ToString().PadLeft(4, '0');
         }
     }

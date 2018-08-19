@@ -9,7 +9,7 @@ namespace ProjetConsole.Data
     public interface IAccesDonnees<T>
     {
         // Pour donner le chemin vers le fichier
-        string getCheminFichier();
+        string GetCheminFichier();
 
         // Initialise la liste si elle est vide
         void InitialiserListe();

@@ -11,7 +11,7 @@ namespace ProjetConsole.Data.Metier
 
         public Commercial()
         {
-            Type = EnumTypePersonne.Commercial;
+            Type = TypePersonne.Commercial;
         }
 
         public static void DemarcherClient()

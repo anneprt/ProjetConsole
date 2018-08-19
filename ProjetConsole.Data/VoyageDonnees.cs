@@ -43,7 +43,7 @@ namespace ProjetConsole.Data
             {
                 DestinationDonnees destinationDonnees = new DestinationDonnees();
                 this.voyages = new List<Voyage>();
-                List<string[]> listeChamp = OutilsFichier.LireFichier(getCheminFichier());
+                List<string[]> listeChamp = OutilsFichier.LireFichier(GetCheminFichier());
                 foreach (string[] champs in listeChamp)
                 {
                     Voyage voyage = new Voyage()
@@ -73,18 +73,18 @@ namespace ProjetConsole.Data
                                             voyage.Destination.Id
                                            ));
             }
-            Directory.CreateDirectory(Path.GetDirectoryName(getCheminFichier()));
-            File.WriteAllText(getCheminFichier(), contenuFichier.ToString());
+            Directory.CreateDirectory(Path.GetDirectoryName(GetCheminFichier()));
+            File.WriteAllText(GetCheminFichier(), contenuFichier.ToString());
         }
 
-        public string getCheminFichier()
+        public string GetCheminFichier()
         {
             return "C:\\Temp\\ProjetConsole\\Voyage.txt";
         }
 
         public bool FichierExiste()
         {
-            return File.Exists(getCheminFichier());
+            return File.Exists(GetCheminFichier());
         }
 
         internal Voyage RecupererVoyageParId(string id)

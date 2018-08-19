@@ -270,7 +270,7 @@ namespace ProjetConsole
         {
             OutilsConsole.AfficherMessage("Entrez les premières lettres du nom ou du prénom à filtrer");
             string saisie = Console.ReadLine();
-            ListerClients(gestionClientService.FiltrerLesClientsParNomParPrenom(saisie));
+            ListerClients(gestionClientService.FiltrerClientsParNomParPrenom(saisie));
 
 
             AfficherRetourMenu();
@@ -295,11 +295,11 @@ namespace ProjetConsole
             switch (tri)
             {
                 case 1:
-                    clientsTries = gestionClientService.TrierLesClientsParNom(saisie);
+                    clientsTries = gestionClientService.TrierClientsParNom(saisie);
                     ListerClients(clientsTries);
                     break;
                 case 2:
-                    clientsTries = gestionClientService.TrierLesClientsParPrenom(saisie);
+                    clientsTries = gestionClientService.TrierClientsParPrenom(saisie);
                     ListerClients(clientsTries);
                     break;
                 default:
@@ -329,7 +329,7 @@ namespace ProjetConsole
             client.DateNaissance = OutilsConsole.SaisirDateObligatoire("Entrez la date de naissance du client");
 
             // On appelle le service en lui passant le nouveau client créee en paramètre pour ajouter dans la liste
-            gestionClientService.AjouterUnClient(client);
+            gestionClientService.AjouterClient(client);
 
             OutilsConsole.AfficherMessage("Le client est bien ajouté !", ConsoleColor.Cyan);
             AfficherRetourMenu();
@@ -354,7 +354,7 @@ namespace ProjetConsole
                         case "o":
                             {
                                 // On supprime le client. Si le client n'existe pas, une exception est levée et le message est affiché
-                                gestionClientService.SupprimerUnClient(identifiant);
+                                gestionClientService.SupprimerClient(identifiant);
                                 Console.WriteLine("Client supprimé");
                                 Console.ReadKey();
                                 continuer = false;

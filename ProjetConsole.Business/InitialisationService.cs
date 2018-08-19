@@ -47,9 +47,7 @@ namespace ProjetConsole.Business
             new Commercial {Id="0003", Nom="Bazan", Prenom="Yannick", Email = "ybazan@prof.mail.fr"},
             new Commercial {Id="0004", Nom="Kinfu", Prenom="Laynet", Email = "kikinf@prof.mail.fr"},
             new Commercial {Id="0005", Nom="Bauduin", Prenom="Anne", Email = "ababab@prof.mail.fr"},
-            new Commercial {Id="0006", Nom="Dupont", Prenom="Axelle", Email = "adgdb@prof.mail.fr"},
-            new Commercial {Id="0007", Nom="Bauduin", Prenom="Thierry", Email = "dsfgd@prof.mail.fr"},
-
+           
         };
 
         public static void Initialiser()
